@@ -1,0 +1,54 @@
+<div class="container mt-4 col-md-4">
+  <h2>Inquiry Form</h2>
+  <form (ngSubmit)="onSubmit()" [formGroup]="inquiryForm">
+    <div class="form-group">
+      <label for="name" class="form-label">Name:</label>
+      <input type="text" class="form-control" id="name" formControlName="name" name="name" placeholder="Name"
+        maxlength="50">
+      <div *ngIf="(inquiryForm.get('name')?.touched || this.submitted )&& inquiryForm.get('name')?.invalid"
+        class="text-danger">
+        Name is required.
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="email" class="form-label">Email:</label>
+      <input type="text" class="form-control" id="email" formControlName="email" placeholder="abc@gmail.com"
+        maxlength="50">
+      <div *ngIf="(inquiryForm.get('email')?.touched || this.submitted) && inquiryForm.get('email')?.invalid"
+        class="text-danger">
+        Email is required.
+      </div>
+      <div *ngIf="inquiryForm.get('email')?.errors?.['email']" class="text-danger">
+        Email must be a valid email address.
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="details" class="form-label">Moving Details:</label>
+      <textarea id="details" class="form-control" id="details" formControlName="details" placeholder="Moving details"
+        maxlength="100"></textarea>
+      <div *ngIf="(inquiryForm.get('details')?.touched || this.submitted) && inquiryForm.get('details')?.invalid"
+        class="text-danger">
+        Moving detail is required.
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="items" class="form-label">Number of Items:</label>
+      <input type="number" id="items" class="form-control" id="items" formControlName="items" placeholder="Number of Items"
+        maxlength="100"/>
+      <div *ngIf="(inquiryForm.get('items')?.touched || this.submitted) && inquiryForm.get('items')?.invalid"
+        class="text-danger">
+        Number of item is required.
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="distance" class="form-label">Distance (km):</label>
+      <input type="number" id="distance" class="form-control" id="distance" formControlName="distance" placeholder="Distance"
+        maxlength="100"/>
+      <div *ngIf="(inquiryForm.get('distance')?.touched || this.submitted) && inquiryForm.get('distance')?.invalid"
+        class="text-danger">
+        Number of item is required.
+      </div>
+    </div>
+    <button type="submit" class="btn btn-primary mt-2 mb-3">Submit Inquiry</button>
+  </form>
+</div>
