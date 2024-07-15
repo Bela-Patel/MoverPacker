@@ -16,10 +16,7 @@ router.post('/', async (req, res) => {
 // Get quotation based on inquiry details
 router.post('/quotation', (req, res) => {
   const { items, distance } = req.body;
-  // Mock implementation of quotation logic
   const cost = items * 10 + distance * 2;
-  console.log(items);
-  console.log(req.body)
   res.send({ cost });
 });
 module.exports = router;

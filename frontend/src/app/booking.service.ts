@@ -7,9 +7,9 @@ import { Observable } from 'rxjs';
 })
 export class BookingService {
 
-  private apiUrl = 'http://localhost:5000/api/bookings';
+  private apiUrl: string = window.location.protocol + "//" + window.location.hostname + ":5000/api/bookings";
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
 
   book(booking: any): Observable<any> {
     return this.http.post(this.apiUrl, booking);
